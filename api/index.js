@@ -31,7 +31,7 @@ const checkCors = (req, res) => {
 };
 
 // Handler para Vercel Functions
-export default async function handler(req, res) {
+module.exports = function handler(req, res) {
   checkCors(req, res);
 
   if (req.method === 'OPTIONS') {
@@ -50,7 +50,7 @@ export default async function handler(req, res) {
     }
 
     // Root endpoint
-    if (pathname === '/' || pathname === '/api') {
+    if (pathname === '/' || pathname === '/api' || pathname === '/api/index' || pathname === '/index') {
       return res.status(200).json({
         name: 'Fernanda GTM Server-Side',
         status: 'Running',
@@ -144,7 +144,7 @@ export default async function handler(req, res) {
       message: error.message,
     });
   }
-}
+};
 
 // Função auxiliar para hash de email
 function hashEmail(email) {
