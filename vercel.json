@@ -1,0 +1,22 @@
+{
+  "buildCommand": "npm install",
+  "devCommand": "node api/index.js",
+  "installCommand": "npm install",
+  "env": {
+    "GTM_CONTAINER_CONFIG": {
+      "description": "Chave de configuração do GTM Server-Side"
+    },
+    "GOOGLE_ADS_CONVERSION_ID": {
+      "description": "Google Ads Conversion ID"
+    },
+    "ENVIRONMENT": {
+      "description": "Ambiente de execução"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api/index.js"
+    }
+  ]
+}
