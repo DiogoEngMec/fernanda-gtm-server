@@ -42,17 +42,18 @@ module.exports = function handler(req, res) {
     const { pathname } = new URL(req.url, `http://${req.headers.host}`);
     log(`Received request: ${req.method} ${pathname}`);
 
-    // Health check - match any path ending with health
-    if (pathname.endsWith('/health') || pathname === '/health') {
-      log('Health check requested');
+    // Health check - MUST come FIRST, before other checks
+    if (pathname.includes('health')) {
+      log('Health check endpoint triggered');
       return res.status(200).json({ 
-        status: 'OK', 
+        status: 'OK',
+        path: pathname,
         timestamp: new Date().toISOString() 
       });
     }
 
     // Root endpoint
-    if (pathname === '/' || pathname === '/api' || pathname === '/api/index' || pathname === '/index') {
+    if (pathname === '/' || pathname === '/api') {
       return res.status(200).json({
         name: 'Fernanda GTM Server-Side',
         status: 'Running',
