@@ -71,14 +71,15 @@ module.exports = function handler(req, res) {
 
     // Conversão de cliques WhatsApp
     if (pathname === "/api/conversion/click" && req.method === "POST") {
-      const { gclid, conversionValue, currency } = req.body;
+      const { gclid, conversionValue, currency, url } = req.body;
 
-      log("Click conversion received:", { gclid, conversionValue });
+      log("Click conversion received:", { gclid, conversionValue, url });
 
       const conversionPayload = {
         conversionValue: conversionValue || 0,
         conversionCurrencyCode: currency || "BRL",
         gclid: gclid,
+        url: url,
       };
 
       log("Click conversion processed:", conversionPayload);
