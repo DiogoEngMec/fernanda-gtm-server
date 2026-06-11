@@ -4,7 +4,7 @@
   "description": "GTM Server-Side para conversões WhatsApp - Fernanda Nutricionista",
   "main": "api/index.js",
   "engines": {
-    "node": "18.16.0"
+    "node": "20.x"
   },
   "scripts": {
     "dev": "node api/index.js",
