@@ -40,16 +40,15 @@ module.exports = function handler(req, res) {
 
   try {
     const { pathname } = new URL(req.url, `http://${req.headers.host}`);
+    log(`Received request: ${req.method} ${pathname}`);
 
-    // Health check
-    if (pathname.endsWith('/health') || pathname === '/' || pathname === '/api') {
-      // If it's a health check request
-      if (pathname.endsWith('/health')) {
-        return res.status(200).json({ 
-          status: 'OK', 
-          timestamp: new Date().toISOString() 
-        });
-      }
+    // Health check - match any path ending with health
+    if (pathname.endsWith('/health') || pathname === '/health') {
+      log('Health check requested');
+      return res.status(200).json({ 
+        status: 'OK', 
+        timestamp: new Date().toISOString() 
+      });
     }
 
     // Root endpoint
