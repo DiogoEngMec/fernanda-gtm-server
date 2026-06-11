@@ -1,11 +1,9 @@
 {
-  "buildCommand": "npm install",
-  "devCommand": "node api/index.js",
-  "installCommand": "npm install",
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/api/index.js"
+  "version": 2,
+  "public": false,
+  "functions": {
+    "api/**.js": {
+      "runtime": "nodejs18.x"
     }
-  ]
+  }
 }
