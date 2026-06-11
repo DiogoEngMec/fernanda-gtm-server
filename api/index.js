@@ -5,6 +5,7 @@ require('dotenv').config();
 const GOOGLE_ADS_CONVERSION_ID = 'AW-16469027355';
 const GOOGLE_ADS_CLICK_CONVERSION = 'Hr4-CPr-rvMZEJvUhaO9';
 const GOOGLE_ADS_FORM_CONVERSION = 'KgyZCNmapLwcEJvUha09';
+const SERVER_VERSION = '2.0.0'; // Force redeployment
 
 // Logger
 const log = (message, data = '') => {
