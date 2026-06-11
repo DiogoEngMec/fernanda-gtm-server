@@ -10,7 +10,12 @@
     "dev": "node api/index.js",
     "start": "node api/index.js"
   },
-  "keywords": ["gtm", "server-side", "google-ads", "fernanda"],
+  "keywords": [
+    "gtm",
+    "server-side",
+    "google-ads",
+    "fernanda"
+  ],
   "author": "Diogo",
   "license": "MIT",
   "dependencies": {
