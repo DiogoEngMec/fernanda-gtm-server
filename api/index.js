@@ -42,11 +42,14 @@ module.exports = function handler(req, res) {
     const { pathname } = new URL(req.url, `http://${req.headers.host}`);
 
     // Health check
-    if (pathname === '/health' || pathname === '/api/health') {
-      return res.status(200).json({ 
-        status: 'OK', 
-        timestamp: new Date().toISOString() 
-      });
+    if (pathname.endsWith('/health') || pathname === '/' || pathname === '/api') {
+      // If it's a health check request
+      if (pathname.endsWith('/health')) {
+        return res.status(200).json({ 
+          status: 'OK', 
+          timestamp: new Date().toISOString() 
+        });
+      }
     }
 
     // Root endpoint
