@@ -1,9 +1,3 @@
 {
-  "version": 2,
-  "public": false,
-  "functions": {
-    "api/**.js": {
-      "runtime": "nodejs18.x"
-    }
-  }
+  "version": 2
 }
